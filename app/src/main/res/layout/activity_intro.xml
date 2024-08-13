@@ -31,14 +31,13 @@
         android:layout_marginHorizontal="16dp"
         android:maxLines="2"
         android:ellipsize="end"
-        android:lineSpacingExtra="-10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/bowlby_one_sc"
+        android:fontFamily="@font/digitalt"
         android:paddingTop="10dp"
         android:text="@string/app_name"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
 
@@ -50,8 +49,7 @@
         android:layout_marginBottom="@dimen/_2sdp"
         app:layout_constraintBottom_toTopOf="@+id/ads"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvIntro">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:id="@+id/ll_circle"
@@ -88,10 +86,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:fontFamily="@font/svn_gilroy"
+            android:fontFamily="@font/sf_pro_text_medium"
             android:padding="6dp"
             android:text="@string/next"
-            android:textColor="@color/white"
+            android:textColor="#FFCA00"
             android:textSize="16sp"
             android:textStyle="bold"
             android:visibility="visible" />
@@ -122,16 +120,16 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/img_language_select"/>
+                android:src="@drawable/img_intro_next"/>
             <TextView
                 android:id="@+id/btn_next"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/svn_gilroy"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/digitalt"
                 android:gravity="center"
-                android:text="@string/next"
-                android:textColor="@color/black"
-                android:textSize="16sp"
+                android:text="@string/next_up"
+                android:textColor="#601e11"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="@id/ivNext"
                 app:layout_constraintBottom_toBottomOf="@id/ivNext"

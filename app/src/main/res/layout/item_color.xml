@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="52dp"
+    android:layout_height="52dp"
+    android:layout_margin="-7dp"
+    android:id="@+id/item_color"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/ivBorderColorSelect"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="34:34"
+        android:src="@drawable/img_border_edit_color_select"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivColorEdit"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/ivColorBorder"
+            app:layout_constraintEnd_toEndOf="@id/ivColorBorder"
+            app:layout_constraintStart_toStartOf="@id/ivColorBorder"
+            app:layout_constraintTop_toTopOf="@id/ivColorBorder" />
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintBottom_toBottomOf="@id/ivColorBorder"
+            app:layout_constraintEnd_toEndOf="@id/ivColorBorder"
+            app:layout_constraintStart_toStartOf="@id/ivColorBorder"
+            app:layout_constraintTop_toTopOf="@id/ivColorBorder"
+            android:src="@drawable/img_face_color"/>
+    </androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/ivBorderColor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="34:34"
+        android:src="@drawable/img_edit_color_"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

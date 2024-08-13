@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ghost_detector"
+rootProject.name = "spin_wheel"
 include ':app'

@@ -15,7 +15,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="360:530"
+                app:layout_constraintDimensionRatio="360:480"
                 android:src="@drawable/img_intro2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

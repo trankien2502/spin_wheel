@@ -34,7 +34,6 @@ public class LanguageStartActivity extends BaseActivity<ActivityLanguageStartBin
     public void initView() {
         EventTracking.logEvent(this,"language_fo_open");
         initData();
-        binding.tvTitle.setText(getString(R.string.language));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         LanguageStartAdapter languageStartAdapter = new LanguageStartAdapter(listLanguage, languageModel -> {
             codeLang = languageModel.getCode();

@@ -14,4 +14,109 @@
     <color name="text_select">#3bed6d</color>
     <color name="text_unselect">#bababa</color>
 
+    <color name="eat_color_1">#FF227C</color>
+    <color name="eat_color_2">#FFF7AC</color>
+    <color name="eat_color_3">#1BE654</color>
+    <color name="eat_color_4">#158FFF</color>
+    <color name="eat_color_5">#D04AFF</color>
+
+    <color name="pastel_1">#AD88C6</color>
+    <color name="pastel_2">#E1AFD1</color>
+    <color name="pastel_3">#FFC6E4</color>
+    <color name="pastel_4">#F0A8D0</color>
+    <color name="pastel_5">#FFFED3</color>
+    <color name="pastel_6">#F6F193</color>
+    <color name="pastel_7">#BFF6C3</color>
+    <color name="pastel_8">#ACE1AF</color>
+    <color name="pastel_9">#55AD9B</color>
+    <color name="pastel_10">#BBE9FF</color>
+    <color name="pastel_11">#D0BFFF</color>
+    <color name="pastel_12">#B1AFFF</color>
+
+    <color name="yes_color_home">#ffffff</color>
+    <color name="no_color_home">#FF2F2F</color>
+    <color name="yes_color">#FFC6E4</color>
+    <color name="no_color">#F5004F</color>
+
+    <color name="vintage_1">#3B2148</color>
+    <color name="vintage_2">#5F374B</color>
+    <color name="vintage_3">#DB7777</color>
+    <color name="vintage_4">#8B322C</color>
+    <color name="vintage_5">#DD5746</color>
+    <color name="vintage_6">#FFC470</color>
+    <color name="vintage_7">#A3C9AA</color>
+    <color name="vintage_8">#86A789</color>
+    <color name="vintage_9">#739072</color>
+    <color name="vintage_10">#51829B</color>
+    <color name="vintage_11">#424769</color>
+    <color name="vintage_12">#2D3250</color>
+
+    <color name="color_1">#00BF1F</color>
+    <color name="color_2">#0089EC</color>
+    <color name="color_3">#FF40BE</color>
+    <color name="color_4">#FF0D18</color>
+    <color name="color_5">#E900CE</color>
+    <color name="color_6">#FFF51B</color>
+
+    <color name="standard_1">#7D17FF</color>
+    <color name="standard_2">#E900CE</color>
+    <color name="standard_3">#FF42A6</color>
+    <color name="standard_4">#FF0D18</color>
+    <color name="standard_5">#FF6E17</color>
+    <color name="standard_6">#FF901A</color>
+    <color name="standard_7">#FFC114</color>
+    <color name="standard_8">#FFF51B</color>
+    <color name="standard_9">#ADFF09</color>
+    <color name="standard_10">#00BF9D</color>
+    <color name="standard_11">#009BE8</color>
+    <color name="standard_12">#0057B0</color>
+
+    <color name="edit_color_0">#FF0D18</color>
+    <color name="edit_color_1">#FF42A6</color>
+    <color name="edit_color_2">#E900CE</color>
+    <color name="edit_color_3">#7D17FF</color>
+    <color name="edit_color_4">#0057B0</color>
+    <color name="edit_color_5">#009BE8</color>
+    <color name="edit_color_6">#FF6E17</color>
+    <color name="edit_color_7">#FF901A</color>
+    <color name="edit_color_8">#FFC114</color>
+    <color name="edit_color_9">#FFF51B</color>
+    <color name="edit_color_10">#ADFF09</color>
+    <color name="edit_color_11">#00BF9D</color>
+    <color name="edit_color_12">#F0A8D0</color>
+    <color name="edit_color_13">#FFFED3</color>
+    <color name="edit_color_14">#F6F193</color>
+    <color name="edit_color_15">#BFF6C3</color>
+    <color name="edit_color_16">#ACE1AF</color>
+    <color name="edit_color_17">#55AD9B</color>
+    <color name="edit_color_18">#FFC6E4</color>
+    <color name="edit_color_19">#E1AFD1</color>
+    <color name="edit_color_20">#AD88C6</color>
+    <color name="edit_color_21">#B1AFFF</color>
+    <color name="edit_color_22">#D0BFFF</color>
+    <color name="edit_color_23">#BBE9FF</color>
+    <color name="edit_color_24">#DD5746</color>
+    <color name="edit_color_25">#FFC470</color>
+    <color name="edit_color_26">#A3C9AA</color>
+    <color name="edit_color_27">#86A789</color>
+    <color name="edit_color_28">#739072</color>
+    <color name="edit_color_29">#51829B</color>
+    <color name="edit_color_30">#8B322C</color>
+    <color name="edit_color_31">#DB7777</color>
+    <color name="edit_color_32">#5F374B</color>
+    <color name="edit_color_33">#3B2048</color>
+    <color name="edit_color_34">#2D3250</color>
+    <color name="edit_color_35">#424769</color>
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

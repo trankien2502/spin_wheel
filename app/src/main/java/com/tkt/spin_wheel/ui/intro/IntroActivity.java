@@ -26,7 +26,7 @@ public class IntroActivity extends BaseActivity<ActivityIntroBinding> {
     @Override
     public void initView() {
         dots = new ImageView[]{binding.ivCircle01, binding.ivCircle02, binding.ivCircle03};
-        listIntroTitle = new int[]{ R.string.app_name,  R.string.app_name, R.string.app_name};
+        listIntroTitle = new int[]{ R.string.intro_1_title,  R.string.intro_2_title, R.string.intro_3_title};
         introAdapter = new IntroAdapter(this);
 
         binding.viewPager2.setAdapter(introAdapter);

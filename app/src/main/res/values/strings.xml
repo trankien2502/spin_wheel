@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">My Base Java</string>
+    <string name="app_name" translatable="false">Spin Wheel</string>
 
     <string name="english" translatable="false">English</string>
     <string name="french" translatable="false">French</string>
@@ -47,5 +47,60 @@
     <string name="settings">Settings</string>
 
     <string name="reset">Reset</string>
+
+    <string name="intro_1_title">Spin the wheel for making decisions</string>
+    <string name="intro_2_title">Text your luck with coin flip</string>
+    <string name="intro_3_title">Pick and win with number choose</string>
+    <string name="languages">LANGUAGES</string>
+    <string name="next_up">NEXT</string>
+    <string name="spin_the_wheel">SPIN The WHEEL</string>
+    <string name="add_wheel">ADD WHEEL</string>
+    <string name="no_spin_wheel_in_here">No spin wheel in here.</string>
+    <string name="coin_flip">Coin Flip</string>
+    <string name="lucky_number">Lucky Number</string>
+    <string name="delete_">Delete?</string>
+    <string name="are_you_sure_you_want_to_delete_this_wheel">Are you sure you want to delete this wheel?</string>
+    <string name="okay">Okay</string>
+    <string name="discard_changes">Discard Changes?</string>
+    <string name="you_have_unsaved_changes_are_you_sure_you_want_to_discard_all">You have unsaved changes. Are you sure you want to discard all?</string>
+    <string name="keep">Keep</string>
+    <string name="discard">Discard</string>
+    <string name="edit">Edit</string>
+    <string name="option_1">Option 1</string>
+    <string name="color">Color</string>
+    <string name="spin">Spin</string>
+    <string name="edit_wheel">Edit Wheel</string>
+    <string name="click_coin_to_start">Click Coin to Start</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="repetition">Repetition</string>
+    <string name="numbers_quantity">Numbers Quantity</string>
+    <string name="go">Go</string>
+    <string name="click_go_to_generate_numbers">Click GO to generate numbers</string>
+    <string name="copy">COPY</string>
+    <string name="please_wait">Please wait!</string>
+    <string name="please_enter_range">Please enter range!</string>
+    <string name="numbers_quantity_must_be_less_than_the_range_provided_when_the_repetition_is_unchecked">Numbers quantity must be less than the range provided when the repetition is unchecked</string>
+    <string name="the_from_number_must_be_less_than_the_to_number">Range is incorrect order. The begin number must be less than the end number!</string>
+    <string name="spin_">Spin:</string>
+    <string name="used">Used:</string>
+    <string name="wheel_color">Wheel Color</string>
+    <string name="standard">Standard</string>
+    <string name="six_color">Six Color</string>
+    <string name="vintage">Vintage</string>
+    <string name="two_color">Two Color</string>
+    <string name="choose_wheel_color">Choose Wheel Color</string>
+    <string name="sections">Sections</string>
+    <string name="add">Add</string>
+    <string name="name_of_wheel">Name of wheel</string>
+    <string name="preview">Preview</string>
+    <string name="spin_time">Spin time</string>
+    <string name="font_size">Font size</string>
+    <string name="repeat_option">Repeat Option</string>
+    <string name="option">Option</string>
+    <string name="pastel">Pastel</string>
+    <string name="delete_wheel">Delete Wheel</string>
+    <string name="top_wheel">Top Wheel</string>
+    <string name="duplicated_wheel">Duplicated Wheel</string>
 
 </resources>

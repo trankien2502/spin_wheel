@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg3"
+    tools:context=".ui.coin.CoinFlipActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_header" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCoinHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/clCoinBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivCoinHead1"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/img_coin_head"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCoinHead"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_text_coin"
+                android:fontFamily="@font/digitalt"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:minWidth="48dp"
+                android:paddingHorizontal="7.5dp"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivCoinHead1"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCoinBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/clCoinHead"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivCoinBack1"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/img_coin_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCoinBack"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_text_coin"
+                android:fontFamily="@font/digitalt"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:minWidth="48dp"
+                android:paddingHorizontal="7.5dp"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivCoinBack1"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/svn_gilroy"
+        android:text="@string/click_coin_to_start"
+        android:gravity="center"
+        android:layout_marginHorizontal="30dp"/>
+
+    <ImageView
+        android:id="@+id/box2"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/box1"
+        android:src="@drawable/img_coin_flip_box"
+        android:scaleType="fitXY"/>
+    <ImageView
+        android:layout_width="121dp"
+        android:layout_height="18dp"
+        app:layout_constraintStart_toStartOf="@id/box2"
+        app:layout_constraintEnd_toEndOf="@id/box2"
+        app:layout_constraintTop_toTopOf="@id/box2"
+        app:layout_constraintBottom_toBottomOf="@id/box2"
+        android:src="@drawable/img_coin_shadow"/>
+    <View
+        android:id="@+id/box1"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#66000000"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clCoinMoveParent"
+        android:layout_width="220dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clCount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="100dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCoinMove"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clCoin"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+                <ImageView
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
+                    android:id="@+id/ivCoinHead"
+                    android:visibility="visible"
+                    android:src="@drawable/img_coin_head_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+                <ImageView
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
+                    android:id="@+id/ivCoinBack"
+                    android:visibility="invisible"
+                    android:src="@drawable/img_coin_back_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

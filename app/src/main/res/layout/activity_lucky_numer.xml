@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".ui.number.LuckyNumerActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_header" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clNumber"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_marginTop="28dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@id/clTo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/svn_gilroy"
+                android:gravity="center"
+                android:text="@string/from"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edtFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_text_number"
+                android:fontFamily="@font/digitalt"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:minWidth="120dp"
+                android:text="10"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintStart_toEndOf="@id/tvFrom"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/clFrom"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvTo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/svn_gilroy"
+                android:gravity="center"
+                android:text="@string/to"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edtTo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_text_number"
+                android:fontFamily="@font/digitalt"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:minWidth="120dp"
+                android:text="100"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintStart_toEndOf="@id/tvTo"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clQuantityAll"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clNumber">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/clRepetition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="85dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|end"
+                android:lines="2"
+                android:text="@string/numbers_quantity"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/clNumberEdit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumberEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvQuantity"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:paddingHorizontal="5dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_quantities"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/ivPlus"
+                    app:layout_constraintStart_toStartOf="@id/ivMinus"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivMinus"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="10dp"
+                    android:src="@drawable/img_minus_unselect"
+                    app:layout_constraintEnd_toStartOf="@id/tvNumber"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber"
+                    android:layout_width="30dp"
+                    android:layout_height="48dp"
+                    android:background="#00000000"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ivPlus"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivPlus"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="10dp"
+                    android:src="@drawable/img_plus_select"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRepetition"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/tvRepetition"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:fontFamily="@font/svn_gilroy"
+                android:gravity="center_vertical|end"
+                android:maxLines="2"
+                android:minWidth="85dp"
+                android:text="@string/repetition"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivRepetition"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivRepetition"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="6dp"
+                android:padding="10dp"
+                android:src="@drawable/img_number_repetition_unselect"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvRepetition"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clQuantityAll"
+        app:layout_constraintBottom_toTopOf="@id/tvCoppy">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/num13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/num46"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber1"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_margin="8dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/clNumber2"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber1"
+                    android:layout_width="79dp"
+                    android:layout_height="57dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber2"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_margin="8dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@id/clNumber1"
+                app:layout_constraintEnd_toStartOf="@id/clNumber3"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber2"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber2"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber2"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber2"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber3"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_margin="8dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/clNumber2"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber3"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber3"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber3"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber3"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/num46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@id/num79"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/num13">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber4"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_margin="8dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@id/clNumber5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber4"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber4"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber4"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber4"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber4"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber5"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_margin="8dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@id/clNumber6"
+                app:layout_constraintStart_toEndOf="@id/clNumber4"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber5"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber5"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber5"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber5"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber5"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber6"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_margin="8dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/clNumber5"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber6"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber6"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber6"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber6"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber6"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber6" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/num79"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@id/num10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/num46">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber7"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_margin="8dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@id/clNumber8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber7"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber7"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber7"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber7"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber7"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber7" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber8"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_margin="8dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@id/clNumber9"
+                app:layout_constraintStart_toEndOf="@id/clNumber7"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber8"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber8"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber8"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber8"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber8"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber8" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber9"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_margin="8dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/clNumber8"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber9"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber9"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber9"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber9"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber9"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber9" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/num10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/num79">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNumber10"
+                android:layout_width="83dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="16dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/viewNumber10"
+                    android:layout_width="83dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/img_border_lucky_number"
+                    app:layout_constraintDimensionRatio="83:51"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNumber10"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center"
+                    android:text="01234"
+                    android:textColor="@color/white"
+                    android:textSize="28.36sp"
+                    app:layout_constraintBottom_toBottomOf="@id/viewNumber10"
+                    app:layout_constraintEnd_toEndOf="@id/viewNumber10"
+                    app:layout_constraintStart_toStartOf="@id/viewNumber10"
+                    app:layout_constraintTop_toTopOf="@id/viewNumber10" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/tvCoppy"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bg_coppy"
+        android:fontFamily="@font/digitalt"
+        android:gravity="center"
+        android:text="@string/copy"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/clGo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_count_three"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header" />
+
+    <TextView
+        android:id="@+id/tvGo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/svn_gilroy"
+        android:gravity="center"
+        android:text="@string/click_go_to_generate_numbers"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/clGo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clGo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/ivGo"
+            android:layout_width="142dp"
+            android:layout_height="52dp"
+            android:src="@drawable/img_button_okay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/digitalt"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@string/go"
+            android:textColor="#601E11"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivGo"
+            app:layout_constraintEnd_toEndOf="@id/ivGo"
+            app:layout_constraintStart_toStartOf="@id/ivGo"
+            app:layout_constraintTop_toTopOf="@id/ivGo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

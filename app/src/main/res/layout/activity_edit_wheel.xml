@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".ui.spin.EditWheelActivity">
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_header" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/ivBorderName"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_marginHorizontal="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_edt_name_wheel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivPen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toBottomOf="@id/ivBorderName"
+                app:layout_constraintEnd_toEndOf="@id/ivBorderName"
+                app:layout_constraintTop_toTopOf="@id/ivBorderName" />
+
+            <EditText
+                android:id="@+id/edtContent"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="#00000000"
+                android:fontFamily="@font/digitalt"
+                android:gravity="start|center_vertical"
+                android:hint="@string/name_of_wheel"
+                android:includeFontPadding="false"
+                android:lines="1"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/white"
+                android:textColorHint="#b7b4e6"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/ivPen"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/llPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edtContent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ivBorderPreview"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:minWidth="172dp"
+                        android:minHeight="199dp"
+                        android:src="@drawable/img_add_border_preview"
+                        app:layout_constraintDimensionRatio="172:199"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvPreview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="26dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/digitalt"
+                        android:gravity="center_vertical"
+                        android:text="@string/preview"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="152dp"
+                        android:layout_height="152dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginBottom="17dp"
+                        app:layout_constraintBottom_toBottomOf="@id/ivBorderPreview"
+                        app:layout_constraintEnd_toEndOf="@id/ivBorderPreview"
+                        app:layout_constraintStart_toStartOf="@id/ivBorderPreview"
+                        app:layout_constraintTop_toBottomOf="@id/tvPreview">
+
+                        <ImageView
+                            android:id="@+id/ivSpinWheel"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/img_spin_wheel_2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.tkt.spin_wheel.ui.spin.wheel.WheelView
+                            android:id="@+id/wheel"
+                            android:layout_width="109dp"
+                            android:layout_height="109dp"
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/ivSpinShadow"
+                            android:layout_width="111dp"
+                            android:layout_height="111dp"
+                            android:src="@drawable/img_spin_shadow"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/img_kim"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/ivSpinShadow" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clSpin"
+                            android:layout_width="33dp"
+                            android:layout_height="33dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/ivSpin"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/img_spin_border_spin" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/digitalt"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
+                                android:lineSpacingExtra="-3dp"
+                                android:maxLines="2"
+                                android:padding="5dp"
+                                android:text="@string/spin"
+                                android:textColor="#FFEC46"
+                                android:textSize="11sp" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <ImageView
+                        android:id="@+id/clWheelColor"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="4dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_add_border_wheel_color"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="172:79"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_goneMarginTop="-12dp" />
+
+                    <TextView
+                        android:id="@+id/tvWheelColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="26dp"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/digitalt"
+                        android:gravity="center_vertical"
+                        android:text="@string/wheel_color"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="@id/clWheelColor"
+                        app:layout_constraintTop_toTopOf="@id/clWheelColor" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/btnWheelColor"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginHorizontal="26dp"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintBottom_toBottomOf="@id/clWheelColor"
+                        app:layout_constraintEnd_toEndOf="@id/clWheelColor"
+                        app:layout_constraintStart_toStartOf="@id/clWheelColor"
+                        app:layout_constraintTop_toBottomOf="@id/tvWheelColor">
+
+                        <TextView
+                            android:id="@+id/tvTypeColor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/svn_gilroy"
+                            android:gravity="center_vertical"
+                            android:text="@string/standard"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/img_expand_right"
+                            app:layout_constraintBottom_toBottomOf="@id/tvTypeColor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tvTypeColor" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clFontSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/ivBorderFontSize"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/img_add_border_resize"
+                            app:layout_constraintDimensionRatio="172:95"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clTvFontSize"
+                            android:layout_width="0dp"
+                            android:layout_height="20dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginHorizontal="22dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="start|center_vertical"
+                                android:text="@string/font_size"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/digitalt"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                            <TextView
+                                android:id="@+id/tvFontSizeEdit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="start|center_vertical"
+                                android:text="4"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/digitalt"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <SeekBar
+                            android:id="@+id/sbFontSize"
+                            android:layout_width="150dp"
+                            android:layout_height="20dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/clTvFontSize"
+                            android:max="12"
+                            android:splitTrack="true"
+                            android:thumb="@drawable/img_resize_thumb"
+                            android:min="4"
+                            android:progress="4"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clRepeatOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_add_border_resize"
+                        app:layout_constraintBottom_toTopOf="@+id/clSpinTime"
+                        app:layout_constraintDimensionRatio="172:95"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/clFontSize">
+
+                        <ImageView
+                            android:id="@+id/ivBorderRepeatOption"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/img_add_border_resize"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="172:95"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clTvRepeat"
+                            android:layout_width="0dp"
+                            android:layout_height="20dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginHorizontal="22dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="start|center_vertical"
+                                android:text="@string/repeat_option"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/digitalt"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                            <TextView
+                                android:id="@+id/tvRepeatOptionEdit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="start|center_vertical"
+                                android:text="1"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/digitalt"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <SeekBar
+                            android:id="@+id/sbRepeat"
+                            android:layout_width="150dp"
+                            android:layout_height="20dp"
+                            android:min="1"
+                            android:splitTrack="true"
+                            android:thumb="@drawable/img_resize_thumb"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/clTvRepeat"
+                            android:progress="1"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clSpinTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+                        <ImageView
+                            android:id="@+id/ivBorderSpinTime"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/img_add_border_resize"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="172:95"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clTvSpinTime"
+                            android:layout_width="0dp"
+                            android:layout_height="20dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginHorizontal="22dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="start|center_vertical"
+                                android:text="@string/spin_time"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/digitalt"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                            <TextView
+                                android:id="@+id/tvSpinTimeEdit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="start|center_vertical"
+                                android:text="8X"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/digitalt"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <SeekBar
+                            android:id="@+id/sbSpinTime"
+                            android:layout_width="150dp"
+                            android:layout_height="20dp"
+                            android:indeterminate="false"
+                            android:max="8"
+                            android:progress="1"
+                            android:min="1"
+                            android:splitTrack="true"
+                            android:thumb="@drawable/img_resize_thumb"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/clTvSpinTime" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAdd"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llPreview">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center_vertical"
+                    android:text="@string/sections"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/digitalt"
+                    android:gravity="center_vertical"
+                    android:text="@string/add"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toStartOf="@id/ivAddSection"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivAddSection"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="4dp"
+                    android:src="@drawable/img_add_wheel_plus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="280dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/clAdd">
+
+                <ImageView
+                    android:id="@+id/ivBorder"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_section_border"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvSection"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="26dp"
+                    android:layout_marginVertical="28dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

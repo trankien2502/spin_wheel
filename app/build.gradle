@@ -72,6 +72,9 @@ dependencies {
     implementation ("androidx.camera:camera-lifecycle:1.2.0-beta01")
     implementation ("androidx.camera:camera-view:1.2.0-beta01")
 
+    //round images
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
     //loadding...
     implementation "com.airbnb.android:lottie:6.3.0"
 

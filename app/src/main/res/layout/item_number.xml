@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/itemLuckyNumber"
+    android:layout_margin="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/viewNumber"
+        android:layout_width="83dp"
+        android:layout_height="51dp"
+        app:layout_constraintDimensionRatio="83:51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/img_border_lucky_number"/>
+    <TextView
+        android:id="@+id/tvNumber"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/viewNumber"
+        app:layout_constraintEnd_toEndOf="@id/viewNumber"
+        app:layout_constraintTop_toTopOf="@id/viewNumber"
+        app:layout_constraintBottom_toBottomOf="@id/viewNumber"
+        android:gravity="center"
+        android:text="01234"
+        android:textSize="28.36sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/digitalt"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

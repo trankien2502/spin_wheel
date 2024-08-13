@@ -15,14 +15,15 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_12sdp"
-            android:fontFamily="@font/bowlby_one_sc"
+            android:fontFamily="@font/digitalt"
             android:gravity="start"
-            android:text="@string/language"
+            android:text="@string/languages"
             android:textColor="@color/white"
             android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@+id/ivGone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

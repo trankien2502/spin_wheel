@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LuckyWheelView">
+        <attr name="numberOfItems" format="integer" />
+        <attr name="numberOfRepeatOptions" format="integer" />
+        <attr name="itemTextSize" format="integer" />
+        <attr name="itemTexts" format="reference"/>
+        <attr name="spinSpeed" format="float" />
+        <attr name="itemColors" format="reference" />
+    </declare-styleable>
+</resources>

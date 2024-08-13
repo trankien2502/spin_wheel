@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mảng chuỗi văn bản cho LuckyWheelView -->
+<!--    <string-array name="wheel_texts">-->
+<!--        <item>Prize 1</item>-->
+<!--        <item>Prize 2</item>-->
+<!--        <item>Prize 3</item>-->
+<!--        <item>Prize 4</item>-->
+<!--        <item>Prize 5</item>-->
+<!--        <item>Prize 6</item>-->
+<!--        <item>Prize 7</item>-->
+<!--        <item>Prize 8</item>-->
+<!--        <item>Prize 9</item>-->
+<!--        <item>Prize 10</item>-->
+<!--    </string-array>-->
+    <string-array name="wheel_standard">
+        <item>#AD88C6</item> <!-- Red -->
+        <item>#E1AFD1</item> <!-- Green -->
+        <item>#FFC6E4</item> <!-- Blue -->
+        <item>#F0A8D0</item> <!-- Yellow -->
+        <item>#FFFED3</item> <!-- Magenta -->
+        <item>#F6F193</item> <!-- Cyan -->
+        <item>#BFF6C3</item> <!-- Red -->
+        <item>#ACE1AF</item> <!-- Green -->
+        <item>#55AD9B</item> <!-- Blue -->
+        <item>#BBE9FF</item> <!-- Yellow -->
+        <item>#D0BFFF</item> <!-- Magenta -->
+        <item>#B1AFFF</item> <!-- Cyan -->
+    </string-array>
+    <string-array name="wheel_vintage">
+        <item>#FF0000</item> <!-- Red -->
+        <item>#00FF00</item> <!-- Green -->
+        <item>#0000FF</item> <!-- Blue -->
+        <item>#FFFF00</item> <!-- Yellow -->
+        <item>#FF00FF</item> <!-- Magenta -->
+        <item>#00FFFF</item> <!-- Cyan -->
+        <item>#FF0000</item> <!-- Red -->
+        <item>#00FF00</item> <!-- Green -->
+        <item>#0000FF</item> <!-- Blue -->
+        <item>#FFFF00</item> <!-- Yellow -->
+        <item>#FF00FF</item> <!-- Magenta -->
+        <item>#00FFFF</item> <!-- Cyan -->
+    </string-array>
+    <string-array name="wheel_pastel">
+        <item>#FF0000</item> <!-- Red -->
+        <item>#00FF00</item> <!-- Green -->
+        <item>#0000FF</item> <!-- Blue -->
+        <item>#FFFF00</item> <!-- Yellow -->
+        <item>#FF00FF</item> <!-- Magenta -->
+        <item>#00FFFF</item> <!-- Cyan -->
+        <item>#FF0000</item> <!-- Red -->
+        <item>#00FF00</item> <!-- Green -->
+        <item>#0000FF</item> <!-- Blue -->
+        <item>#FFFF00</item> <!-- Yellow -->
+        <item>#FF00FF</item> <!-- Magenta -->
+        <item>#00FFFF</item> <!-- Cyan -->
+    </string-array>
+    <string-array name="wheel_two_colors">
+        <item>#FF0000</item> <!-- Red -->
+        <item>#00FF00</item> <!-- Green -->
+        <item>#0000FF</item> <!-- Blue -->
+        <item>#FFFF00</item> <!-- Yellow -->
+        <item>#FF00FF</item> <!-- Magenta -->
+        <item>#00FFFF</item> <!-- Cyan -->
+        <item>#FF0000</item> <!-- Red -->
+        <item>#00FF00</item> <!-- Green -->
+        <item>#0000FF</item> <!-- Blue -->
+        <item>#FFFF00</item> <!-- Yellow -->
+        <item>#FF00FF</item> <!-- Magenta -->
+        <item>#00FFFF</item> <!-- Cyan -->
+    </string-array>
+    <string-array name="wheel_six_colors">
+        <item>#FF0000</item> <!-- Red -->
+        <item>#00FF00</item> <!-- Green -->
+        <item>#0000FF</item> <!-- Blue -->
+        <item>#FFFF00</item> <!-- Yellow -->
+        <item>#FF00FF</item> <!-- Magenta -->
+        <item>#00FFFF</item> <!-- Cyan -->
+        <item>#FF0000</item> <!-- Red -->
+        <item>#00FF00</item> <!-- Green -->
+        <item>#0000FF</item> <!-- Blue -->
+        <item>#FFFF00</item> <!-- Yellow -->
+        <item>#FF00FF</item> <!-- Magenta -->
+        <item>#00FFFF</item> <!-- Cyan -->
+    </string-array>
+</resources>
