@@ -31,6 +31,7 @@ public class SettingActivity extends BaseActivity<ActivitySettingBinding> {
     public void initView() {
         EventTracking.logEvent(this,"setting_view");
         binding.headerSetting.tvTitle.setText(R.string.settings);
+        binding.headerSetting.ivGone.setVisibility(View.INVISIBLE);
         binding.tvLangCurrent.setText(SPUtils.getString(this,SPUtils.LANGUAGE,""));
         if (SharePrefUtils.isRated(this)) {
             binding.clRate.setVisibility(View.GONE);

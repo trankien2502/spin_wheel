@@ -27,9 +27,9 @@ public class ExitAppDialog extends BaseDialog<DialogExitAppBinding> {
 
     @Override
     protected void bindView() {
-        binding.btnCancelQuitApp.setOnClickListener(view -> iBaseListener.cancel());
+        binding.clCancel.setOnClickListener(view -> iBaseListener.cancel());
 
-        binding.btnQuitApp.setOnClickListener(view -> iBaseListener.quit());
+        binding.clOkay.setOnClickListener(view -> iBaseListener.quit());
 
     }
 

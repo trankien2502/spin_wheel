@@ -16,6 +16,10 @@ public class SPUtils {
     public static String SOUND_POSITION = "SOUND_POSITION";
     public static String SOUND_CHECK = "SOUND_CHECK";
     public static String RATE_STAR = "RATE_STAR";
+    public static int MORE_EDIT_ID = 1;
+    public static int MORE_DUPLICATE_ID = 2;
+    public static int MORE_TOP_ID = 3;
+    public static int MORE_DELETE_ID = 4;
 
 
 

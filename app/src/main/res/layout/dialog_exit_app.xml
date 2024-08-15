@@ -1,102 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <LinearLayout
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/ivBorderDeteleDialog"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="@id/viewDetele"
+        app:layout_constraintTop_toTopOf="@id/viewDetele"
+        app:layout_constraintEnd_toEndOf="@id/viewDetele"
+        app:layout_constraintBottom_toBottomOf="@id/viewDetele"
+        android:src="@drawable/img_border_delete_dialog"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewDetele"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:background="@drawable/bg_view_c15"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingHorizontal="@dimen/_12sdp"
-        android:paddingTop="@dimen/_20sdp"
-        android:paddingBottom="@dimen/_14sdp">
-
+        android:padding="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         <TextView
-            android:id="@+id/tv_title_quit"
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:fontFamily="@font/bowlby_one_sc"
-            android:includeFontPadding="false"
-            android:singleLine="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:text="@string/quit"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_16ssp" />
-
+            android:textColor="@color/white"
+            android:includeFontPadding="false"
+            android:textSize="24sp"
+            android:fontFamily="@font/digitalt"/>
         <TextView
-            android:id="@+id/tv_content_quit"
+            android:id="@+id/tvContent"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:gravity="center"
-            android:fontFamily="@font/svn_gilroy"
-            android:includeFontPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
             android:text="@string/are_you_sure_want_to_quit_app"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_11ssp" />
+            android:textColor="@color/white"
+            android:includeFontPadding="false"
+            android:textSize="16sp"
+            android:fontFamily="@font/svn_gilroy"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCancel"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/clOkay"
+            app:layout_constraintTop_toBottomOf="@id/tvContent"
+            android:layout_marginTop="16dp">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="44dp"
+                android:paddingVertical="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/img_button_cancel" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:fontFamily="@font/digitalt"
+                android:textSize="24sp"
+                android:textColor="#464646"
+                android:maxLines="1"
+                android:includeFontPadding="false"
+                android:ellipsize="end"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clOkay"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/clCancel"
+            app:layout_constraintTop_toBottomOf="@id/tvContent"
+            android:layout_marginTop="16dp">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="44dp"
+                android:paddingVertical="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/img_button_okay" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/quit"
+                android:fontFamily="@font/digitalt"
+                android:textSize="24sp"
+                android:textColor="#601e11"
+                android:maxLines="1"
+                android:includeFontPadding="false"
+                android:ellipsize="end"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_28sdp">
 
-            <View
-                android:id="@+id/view_center"
-                android:layout_width="1dp"
-                android:layout_height="1dp"
-                android:layout_centerInParent="true"
-                android:layout_marginHorizontal="@dimen/_6sdp" />
 
-            <RelativeLayout
-                android:id="@+id/btn_cancel_quit_app"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/view_center"
-                android:background="@drawable/bg_view_32">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginVertical="@dimen/_8sdp"
-                    android:ellipsize="end"
-                    android:includeFontPadding="false"
-                    android:singleLine="true"
-                    android:text="@string/cancel"
-                    android:fontFamily="@font/svn_gilroy"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_10ssp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btn_quit_app"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/view_center"
-                android:backgroundTint="#35cc00"
-                android:background="@drawable/bg_view_32">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginVertical="@dimen/_8sdp"
-                    android:ellipsize="end"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/svn_gilroy"
-                    android:singleLine="true"
-                    android:text="@string/quit"
-                    android:textColor="#FCFCFC"
-                    android:textSize="@dimen/_10ssp" />
-            </RelativeLayout>
-        </RelativeLayout>
-
-    </LinearLayout>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

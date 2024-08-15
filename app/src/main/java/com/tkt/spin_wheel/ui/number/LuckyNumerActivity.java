@@ -8,18 +8,23 @@ import android.animation.PropertyValuesHolder;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tkt.spin_wheel.R;
 import com.tkt.spin_wheel.base.BaseActivity;
 import com.tkt.spin_wheel.databinding.ActivityLuckyNumerBinding;
+import com.tkt.spin_wheel.util.EventTracking;
 import com.tkt.spin_wheel.util.StringUtils;
 
 import java.util.ArrayList;
@@ -33,6 +38,7 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
     boolean isRepeat = false;
     ConstraintLayout[] listClNumber = null;
     TextView[] listTvNumber = null;
+    MediaPlayer winnerMedia = new MediaPlayer();
     @Override
     public ActivityLuckyNumerBinding getBinding() {
         return ActivityLuckyNumerBinding.inflate(getLayoutInflater());
@@ -40,6 +46,7 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
 
     @Override
     public void initView() {
+        EventTracking.logEvent(this,"number_view");
         initData();
         binding.header.tvTitle.setText(R.string.lucky_number);
         binding.header.ivGone.setVisibility(View.INVISIBLE);
@@ -48,6 +55,7 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
     public void bindView() {
         binding.header.ivBack.setOnClickListener(view -> onBackPressed());
         binding.ivRepetition.setOnClickListener(view -> {
+            EventTracking.logEvent(getBaseContext(),"number_repetition_click");
             if (isProcessing){
                 Toast.makeText(this, R.string.please_wait, Toast.LENGTH_SHORT).show();
                 return;
@@ -62,6 +70,7 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
             Log.d("luckyCheck","repeat "  +isRepeat);
         });
         binding.clGo.setOnClickListener(view -> {
+            EventTracking.logEvent(this,"number_go_click");
             if (isProcessing) {
                 Toast.makeText(this, R.string.please_wait, Toast.LENGTH_SHORT).show();
                 return;
@@ -76,12 +85,15 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
             binding.num79.setVisibility(View.GONE);
             binding.num10.setVisibility(View.GONE);
             binding.tvCoppy.setVisibility(View.GONE);
+            isProcessing = true;
+            binding.clGo.setVisibility(View.GONE);
             for (int i=0;i<10;i++){
                 listClNumber[i].setVisibility(View.GONE);
             }
             binding.tvCoppy.setVisibility(View.GONE);
             binding.tvGo.setVisibility(View.GONE);
             binding.ivCount.setVisibility(View.VISIBLE);
+            playSoundCount();
             createAnimationNumberCount();
             new Handler().postDelayed(()->{
                 binding.ivCount.setImageResource(R.drawable.img_count_two);
@@ -93,12 +105,12 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
                         binding.ivCount.setImageResource(R.drawable.img_count_three);
                         binding.ivCount.setVisibility(View.GONE);
                         showLuckyNumber();
-                        Toast.makeText(this, "Counted!", Toast.LENGTH_SHORT).show();
                     },1000);
                 },1000);
             },1000);
         });
         binding.ivMinus.setOnClickListener(view -> {
+            EventTracking.logEvent(getBaseContext(),"number_quantity_adjust_click");
             quantity = StringUtils.getNumbeText(binding.tvNumber);
             if(quantity==2){
                 binding.ivMinus.setImageResource(R.drawable.img_minus_unselect);
@@ -114,6 +126,7 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
             }
         });
         binding.ivPlus.setOnClickListener(view -> {
+            EventTracking.logEvent(getBaseContext(),"number_quantity_adjust_click");
             quantity = StringUtils.getNumbeText(binding.tvNumber);
             if(quantity==9){
                 binding.ivPlus.setImageResource(R.drawable.img_plus_unselect);
@@ -129,11 +142,12 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
             }
         });
         binding.tvCoppy.setOnClickListener(view -> {
+            EventTracking.logEvent(this,"number_copy_click");
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clip = ClipData.newPlainText("label", luckyNumber.toString());
             clipboard.setPrimaryClip(clip);
 
-            Toast.makeText(this, "Copy success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.copy_success), Toast.LENGTH_SHORT).show();
         });
         binding.edtFrom.addTextChangedListener(new TextWatcher() {
             @Override
@@ -187,6 +201,49 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
                 }
             }
         });
+        binding.edtTo.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    // Ẩn bàn phím
+                    if (imm != null) {
+                        imm.hideSoftInputFromWindow(textView.getWindowToken(), 0);
+                    }
+                    EventTracking.logEvent(getBaseContext(),"number_start");
+                    return true;
+                }
+                return false;
+            }
+        });
+        binding.edtFrom.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    // Ẩn bàn phím
+                    if (imm != null) {
+                        imm.hideSoftInputFromWindow(textView.getWindowToken(), 0);
+                    }
+                    EventTracking.logEvent(getBaseContext(),"numver_end");
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+    private void playSoundCount() {
+        if (winnerMedia != null) {
+            winnerMedia.release();
+        }
+        winnerMedia = MediaPlayer.create(this, R.raw.luck_number_count);
+        winnerMedia.start();
+    }
+    private void stopSoundCount() {
+        if (winnerMedia != null) {
+            winnerMedia.release();
+            winnerMedia = null;
+        }
     }
     private boolean checkDataEntry(){
         if (binding.edtFrom.getText().toString().equals("")||binding.edtTo.getText().toString().equals("")||binding.tvNumber.getText().toString().equals("")){
@@ -208,6 +265,8 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
         return  true;
     }
     private void showLuckyNumber(){
+        isProcessing = false;
+        binding.clGo.setVisibility(View.VISIBLE);
         getListLuckyNumber();
         count = 0;
         binding.num13.setVisibility(View.VISIBLE);
@@ -265,5 +324,17 @@ public class LuckyNumerActivity extends BaseActivity<ActivityLuckyNumerBinding> 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopSoundCount();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopSoundCount();
     }
 }

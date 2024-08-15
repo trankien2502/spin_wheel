@@ -14,6 +14,8 @@
     <color name="text_select">#3bed6d</color>
     <color name="text_unselect">#bababa</color>
 
+    <color name="none_color">#00000000</color>
+
     <color name="eat_color_1">#FF227C</color>
     <color name="eat_color_2">#FFF7AC</color>
     <color name="eat_color_3">#1BE654</color>

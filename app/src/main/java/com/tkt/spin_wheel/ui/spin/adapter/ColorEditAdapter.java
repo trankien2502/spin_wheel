@@ -40,8 +40,6 @@ public class ColorEditAdapter extends RecyclerView.Adapter<ColorEditAdapter.Colo
     @Override
     public void onBindViewHolder(@NonNull ColorEditViewHolder holder, int position) {
         ColorEdit colorEdit = listColor.get(position);
-        if (colorEdit==null) Log.d("spincheck","null =))");
-        else Log.d("spincheck","no null =))");
         assert colorEdit != null;
         int colorId = colorEdit.getIdColor();
         holder.itemColorBinding.ivColorEdit.setBackgroundColor(colorId);

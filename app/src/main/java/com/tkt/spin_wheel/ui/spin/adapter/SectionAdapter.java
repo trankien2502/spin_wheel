@@ -20,6 +20,7 @@ import com.tkt.spin_wheel.databinding.ItemSectionBinding;
 import com.tkt.spin_wheel.ui.spin.model.WheelModel;
 
 import java.util.List;
+import java.util.Objects;
 
 public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.SectionViewHolder> {
 
@@ -47,8 +48,11 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.SectionV
     @Override
     public void onBindViewHolder(@NonNull SectionViewHolder holder, @SuppressLint("RecyclerView") int position) {
         String itemSectionName = itemTexts.get(position);
-        int colorSection = color.get(position%color.size());
-        holder.itemSectionBinding.ivColorEdit.setBackgroundColor(colorSection);
+        if (color.size()!=0){
+            int colorSection = color.get(position%color.size());
+            holder.itemSectionBinding.ivColorEdit.setBackgroundColor(colorSection);
+        }
+        if (Objects.equals(itemSectionName, "\n")) itemSectionName="";
         holder.itemSectionBinding.edtSectionName.setText(itemSectionName);
 
         holder.itemSectionBinding.ivDeleteSection.setOnClickListener(view -> ionClickSectionListener.delete(position));

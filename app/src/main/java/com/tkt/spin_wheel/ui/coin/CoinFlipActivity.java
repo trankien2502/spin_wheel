@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.tkt.spin_wheel.R;
 import com.tkt.spin_wheel.base.BaseActivity;
 import com.tkt.spin_wheel.databinding.ActivityCoinFlipBinding;
+import com.tkt.spin_wheel.util.EventTracking;
 
 import java.util.Random;
 
@@ -24,6 +26,7 @@ public class CoinFlipActivity extends BaseActivity<ActivityCoinFlipBinding> {
     Flip3dAnimation flipToFront = null;
     int countFlip = 0,random =0;
     boolean isFlip = false;
+    MediaPlayer spinningMedia = new MediaPlayer();
     @Override
     public ActivityCoinFlipBinding getBinding() {
         return ActivityCoinFlipBinding.inflate(getLayoutInflater());
@@ -31,6 +34,7 @@ public class CoinFlipActivity extends BaseActivity<ActivityCoinFlipBinding> {
 
     @Override
     public void initView() {
+        EventTracking.logEvent(this,"coin_flip_view");
         binding.header.tvTitle.setText(R.string.coin_flip);
         binding.header.ivGone.setVisibility(View.INVISIBLE);
         binding.tvCoinBack.setText("0");
@@ -43,20 +47,21 @@ public class CoinFlipActivity extends BaseActivity<ActivityCoinFlipBinding> {
         binding.clCoinMove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EventTracking.logEvent(getBaseContext(),"coin_flip_start_click");
                 if (isFlip) return;
                 countFlip = 0;
                 isFlip = true;
                 binding.tvStart.setVisibility(View.GONE);
+                stopSoundCoin();
                 startFlipMoveCoinUp();
                 startFlipAnimation();
-
             }
         });
     }
     private void startFlipAnimation() {
         final float centerX = binding.ivCoinHead.getWidth() / 2.0f;
         final float centerY = binding.ivCoinHead.getHeight() / 2.0f;
-        random = new Random().nextInt(2)+10;
+        random = new Random().nextInt(2)+8;
         flipToBack = new Flip3dAnimation(0, 180, centerX, centerY, binding.ivCoinHead, binding.ivCoinBack);
         flipToBack.setDuration(100);
         flipToBack.setFillAfter(true);
@@ -113,12 +118,13 @@ public class CoinFlipActivity extends BaseActivity<ActivityCoinFlipBinding> {
         int clCoinHeight = binding.clCoinMove.getHeight();
 
         ObjectAnimator moveUp = ObjectAnimator.ofFloat(binding.clCoinMove, "translationY", clCoinHeight - parentHeight);
-        moveUp.setDuration(1000);
+        moveUp.setDuration(800);
         moveUp.setInterpolator(new LinearInterpolator());
         moveUp.start();
 
     }
     private void startFlipMoveCoinDownAndCount(){
+        playSoundCoin();
         int countCoinBack ;
         int countCoinHead ;
         try {
@@ -142,9 +148,38 @@ public class CoinFlipActivity extends BaseActivity<ActivityCoinFlipBinding> {
         new Handler().postDelayed(()->{isFlip=false;},200);
 
     }
+    private void playSoundCoin() {
+        if (spinningMedia != null) {
+            spinningMedia.release();
+        }
+        spinningMedia = MediaPlayer.create(this, R.raw.coin_flip_sound);
+        spinningMedia.start();
+    }
+
+
+
+    private void stopSoundCoin() {
+        if (spinningMedia != null) {
+            spinningMedia.release();
+            spinningMedia = null;
+        }
+    }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        EventTracking.logEvent(this,"coin_flip_back_click");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopSoundCoin();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopSoundCoin();
     }
 }

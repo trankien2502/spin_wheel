@@ -14,8 +14,11 @@ import java.util.List;
 
 @Dao
 public interface WheelDAO {
-    @Query("select * from wheel where isActive == (:active)")
+    @Query("select * from wheel where isActive == (:active) order by priotity DESC, id DESC")
     List<WheelModel> getAllWheelModel(boolean active);
+
+    @Query("select * from wheel")
+    List<WheelModel> getAllWheelModel();
 
     @Query("SELECT * FROM wheel WHERE name == (:wheelName)")
     WheelModel findByName(String wheelName);
@@ -29,7 +32,7 @@ public interface WheelDAO {
 
 
     @Insert
-    void insertAll(WheelModel... wheelModels);
+    long insertAll(WheelModel wheelModels);
 
     @Update
     void update(WheelModel wheelModel);

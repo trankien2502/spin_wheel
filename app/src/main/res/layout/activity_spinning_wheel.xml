@@ -84,88 +84,142 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/tvNameOption"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:ellipsize="end"
         android:fontFamily="@font/digitalt"
         android:gravity="center"
         android:maxLines="2"
-        android:ellipsize="end"
+        android:minHeight="30dp"
         android:text="@string/option_1"
         android:textColor="#ffffff"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/clNameWheel" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="360dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvNameOption"
-        android:layout_marginTop="24dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clNameWheel">
+
         <ImageView
             android:id="@+id/ivSpinWheel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/img_spin_wheel_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tkt.spin_wheel.ui.spin.wheel.WheelView
+            android:id="@+id/wheel"
+            android:layout_width="259dp"
+            android:layout_height="259dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivSpinShadow"
+            android:layout_width="265dp"
+            android:layout_height="265dp"
+            android:src="@drawable/img_spin_shadow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="36dp"
+            android:src="@drawable/img_kim"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivSpinShadow" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clSpin"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivSpin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_spin_border_spin" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:fontFamily="@font/digitalt"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="-3dp"
+                android:maxLines="2"
+                android:padding="5dp"
+                android:text="@string/spin"
+                android:textColor="#FFEC46"
+                android:textSize="26sp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clErrorSlice"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="25dp">
+        <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/img_spin_wheel_2"/>
-        <com.tkt.spin_wheel.ui.spin.wheel.WheelView
-            android:id="@+id/wheel"
-            android:layout_width="259dp"
-            android:layout_height="259dp"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            android:src="@drawable/img_border_error"
+            android:scaleType="fitXY"/>
         <ImageView
-            android:id="@+id/ivSpinShadow"
-            android:layout_width="265dp"
-            android:layout_height="265dp"
+            android:id="@+id/view1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/img_spin_shadow"/>
-        <ImageView
-            android:layout_width="46dp"
-            android:layout_height="36dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/img_no_name_wheel"
+            android:layout_marginStart="28dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ivSpinShadow"
-            android:src="@drawable/img_kim"/>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clSpin"
-            android:layout_width="79dp"
-            android:layout_height="79dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view1"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
-            <ImageView
-                android:id="@+id/ivSpin"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/img_spin_border_spin"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="5dp"
-                android:textSize="26sp"
-                android:textColor="#FFEC46"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:text="@string/spin"
-                android:lineSpacingExtra="-3dp"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/digitalt"
-                android:gravity="center"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginEnd="28dp"
+            android:layout_marginStart="4dp"
+            android:maxLines="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:text="@string/please_keep_at_least_two_slice_to_the_wheel"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

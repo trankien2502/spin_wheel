@@ -23,23 +23,24 @@ public class WheelModel {
     @TypeConverters(IntegerListConverter.class)
     public List<Integer> itemColor;
     private int spin;
-    private int used;
+    private long lastUsed;
     int typeColor;
+    int priotity;
     private boolean isActive;
 
     public WheelModel() {
     }
 
-    public WheelModel(int id,String name, int fontSize, int spinSpeed, int spin, int used) {
+    public WheelModel(int id,String name, int fontSize, int spinSpeed, int spin, long lastUsed) {
         this.name = name;
         this.id = id;
         this.fontSize = fontSize;
         this.spinSpeed = spinSpeed;
         this.spin = spin;
-        this.used = used;
+        this.lastUsed = lastUsed;
     }
 
-    public WheelModel(int id, String name,int numberOfItems,int typeColor, int fontSize, int spinSpeed,int repeatOption, int spin, int used, List<String> itemTexts, List<Integer> itemColor, boolean isActive) {
+    public WheelModel(int id, String name,int numberOfItems,int priotity,int typeColor, int fontSize, int spinSpeed,int repeatOption, int spin, long lastUsed, List<String> itemTexts, List<Integer> itemColor, boolean isActive) {
         this.id = id;
         this.name = name;
         this.repeatOption = repeatOption;
@@ -48,21 +49,41 @@ public class WheelModel {
         this.spinSpeed = spinSpeed;
         this.itemTexts = itemTexts;
         this.itemColor = itemColor;
+        this.typeColor = typeColor;
+        this.priotity = priotity;
         this.spin = spin;
-        this.used = used;
+        this.lastUsed = lastUsed;
         this.isActive = isActive;
     }
-    public WheelModel(String name,int numberOfItems,int typeColor, int fontSize,int spinSpeed,int repeatOption, int spin, int used,  List<String> itemTexts, List<Integer> itemColor, boolean isActive) {
+    public WheelModel(String name,int numberOfItems,int priotity,int typeColor, int fontSize,int spinSpeed,int repeatOption, int spin, long lastUsed,  List<String> itemTexts, List<Integer> itemColor, boolean isActive) {
         this.name = name;
         this.numberOfItems = numberOfItems;
         this.repeatOption = repeatOption;
         this.fontSize = fontSize;
         this.spinSpeed = spinSpeed;
         this.itemTexts = itemTexts;
+        this.typeColor = typeColor;
         this.itemColor = itemColor;
         this.spin = spin;
-        this.used = used;
+        this.priotity = priotity;
+        this.lastUsed = lastUsed;
         this.isActive = isActive;
+    }
+
+    public long getLastUsed() {
+        return lastUsed;
+    }
+
+    public void setLastUsed(long lastUsed) {
+        this.lastUsed = lastUsed;
+    }
+
+    public int getPriotity() {
+        return priotity;
+    }
+
+    public void setPriotity(int priotity) {
+        this.priotity = priotity;
     }
 
     public int getTypeColor() {
@@ -109,13 +130,7 @@ public class WheelModel {
         this.spin = spin;
     }
 
-    public int getUsed() {
-        return used;
-    }
 
-    public void setUsed(int used) {
-        this.used = used;
-    }
 
     public void setId(int id) {
         this.id = id;

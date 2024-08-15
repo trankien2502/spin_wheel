@@ -81,20 +81,10 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
             );
         }
         hideNavigation();
-        createLoadingDialog();
         initView();
         bindView();
     }
-    private void createLoadingDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_loading, null);
-        builder.setView(dialogView);
-        builder.setCancelable(false);
 
-        alertDialog = builder.create();
-
-    }
 //    public void showLoadingDialog(){
 //        alertDialog.show();
 //    }
